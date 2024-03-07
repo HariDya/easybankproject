@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menubar</title>
+    <link rel="stylesheet" href="font_awesome/css/all.css" />
+
+    <style>
+      body {
+        background-color: red;
+      }
+      * {
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+      }
+
+      body {
+        /*  background-color: red;  */
+        font-family: "Lora", serif;
+        font-size: 18px;
+        line-height: 1.5;
+        width: 100%;
+      }
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      ul,
+      a {
+        list-style-type: none;
+        text-decoration: none;
+      }
+
+      header {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        z-index: 9999;
+        width: 100%;
+      }
+      nav.nav-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 24px;
+      }
+      .logo a {
+        align-self: center;
+        text-decoration: none;
+        font-family: "Great Vibes";
+        font-size: 50px;
+        color: #ffff;
+        font-weight: 600;
+      }
+
+      ul.nav-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+      }
+      li.nav-item a:hover {
+        color: #fff;
+      }
+      li.nav-item a {
+        padding: 15px 15px;
+        font-weight: 600;
+        font-size: 18px;
+        text-decoration: none;
+        transition: 0.7s ease;
+      }
+      ul.icone-menu li a {
+        color: #fff;
+        font-size: 25px;
+        text-decoration: none;
+      }
+
+      ul.icone-menu li {
+        padding: 10px 10px;
+        list-style-type: none;
+      }
+      ul.icone-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .hambuger {
+        display: none;
+        cursor: pointer;
+      }
+      .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background-color: white;
+      }
+
+      @media screen and (max-width: 767.98px) {
+        .container {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 0px 20px;
+        }
+        nav.nav-bar {
+          gap: 0px;
+        }
+        .logo a {
+          text-decoration: none;
+          font-family: "Great Vibes";
+          font-size: 20px;
+          color: #ffff;
+          font-weight: 600;
+        }
+
+        .hambuger {
+          display: block;
+          cursor: pointer;
+        }
+
+        .hambuger.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hambuger.active .bar:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+
+        .hambuger.active .bar:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+
+        ul.nav-menu {
+          position: fixed;
+          right: -400px;
+          top: 100px;
+          gap: 0;
+          flex-direction: column;
+          background-color: #000;
+          width: 52%;
+          text-align: center;
+          transition: 0.3s;
+        }
+
+        li.nav-item {
+          margin: 16px 0;
+        }
+
+        ul.nav-menu.active {
+          right: 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="nav-bar">
+          <div class="logo">
+            <a href=""
+              ><img src="images/cafe-logo1.png" alt="cafe" /> Dya Cafe</a
+            >
+          </div>
+          <ul class="nav-menu">
+            <li class="nav-item"><a href="#">Home</a></li>
+            <li class="nav-item"><a href="#">About </a></li>
+            <li class="nav-item"><a href="#">Menu</a></li>
+            <li class="nav-item"><a href="#"> Testimonials</a></li>
+            <li class="nav-item"><a href="#">Contact</a></li>
+          </ul>
+
+          <div class="icons">
+            <ul class="icone-menu">
+              <li>
+                <a href="#" target="_blank"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+              </li>
+              <li>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="hambuger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <script>
+      const hambuger = document.querySelector(".hambuger");
+      const navMenu = document.querySelector(".nav-menu");
+
+      hambuger.addEventListener("click", () => {
+        hambuger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
